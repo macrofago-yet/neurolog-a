@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odonto-IA | Fase 2 (Leitner)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="avatar-container">
+        <div id="avatar">🦷</div>
+        <div class="burbuja-texto" id="burbuja-avatar">¡Hola! Seleccioná una materia para entrenar.</div>
+    </div>
+
+    <section id="pantalla-inicio" class="container">
+        <header class="header">
+            <h1>Odonto-IA <span>F2</span></h1>
+            <p>Entrenamiento de Alto Rendimiento</p>
+        </header>
+        
+        <div class="welcome-box">
+            <h2>Panel de Control</h2>
+          <label>1. Materia:</label>
+    <select id="selector-materia" class="custom-select" onchange="actualizarTemas()">
+        <option value="">-- Seleccionar Materia --</option>
+        <option value="anatomia">Anatomía</option>
+        <option value="bioquimica">Bioquímica</option>
+    </select>
+
+    <label>2. Tema:</label>
+    <select id="selector-tema" class="custom-select" onchange="actualizarSubtemas()" disabled>
+        <option value="">-- Seleccionar Tema --</option>
+    </select>
+
+    <label>3. Subtema:</label>
+    <select id="selector-subtema" class="custom-select" onchange="activarBotonInicio()" disabled>
+        <option value="">-- Seleccionar Subtema --</option>
+    </select>
+    
+    <button id="btn-comenzar" class="btn-principal" onclick="comenzarEstudio()" disabled>
+        Iniciar Sesión
+    </button>
+</div>
+    </section>
+
+    <section id="pantalla-estudio" class="container" style="display: none;">
+        <div class="header-estudio-izquierda">
+            <h2 id="titulo-pantalla">MATERIA > TEMA</h2>
+            <button onclick="volverInicio()" class="btn-volver">← Abandonar</button>
+        </div>
+
+        <div class="trivia-card">
+            <div id="pregunta-texto" class="pregunta-main">Cargando...</div>
+            
+            <div id="opciones-container" class="opciones-grid"></div>
+
+            <div id="explicacion-box" class="explicacion-box" style="display: none;">
+                <div class="box-header">💡 POR QUÉ ES ASÍ:</div>
+                <div id="explicacion-texto"></div>
+            </div>
+        </div>
+
+        <section class="controls-f2">
+            <button onclick="mostrarPista()" id="btn-pista" class="btn-pista">Pedir Pista</button>
+            <button id="btn-next" class="btn-next" style="visibility: hidden;">Siguiente →</button>
+        </section>
+
+        <div class="stats-leitner">
+            <div id="box-level">Caja 1</div>
+            <div id="contador">Pregunta 1 de X</div>
+        </div>
+    </section>
+
+   <script src="data/anatomia.js"></script>
+    <script src="data/bioquimica.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
